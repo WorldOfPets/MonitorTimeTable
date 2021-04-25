@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="timetable_v3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="timetable_v3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Course" EntityType="timetable_v3Model.Course" />
+    <EntitySet Name="Group" EntityType="timetable_v3Model.Group" />
+    <EntitySet Name="Role" EntityType="timetable_v3Model.Role" />
+    <EntitySet Name="Spec" EntityType="timetable_v3Model.Spec" />
+    <EntitySet Name="Subject" EntityType="timetable_v3Model.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="timetable_v3Model.sysdiagrams" />
+    <EntitySet Name="Teacher" EntityType="timetable_v3Model.Teacher" />
+    <EntitySet Name="TimeSpanStatic" EntityType="timetable_v3Model.TimeSpanStatic" />
+    <EntitySet Name="TimeTableMain" EntityType="timetable_v3Model.TimeTableMain" />
+    <EntitySet Name="User" EntityType="timetable_v3Model.User" />
+    <AssociationSet Name="FK_Spec_Course" Association="timetable_v3Model.FK_Spec_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Spec" EntitySet="Spec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Spec" Association="timetable_v3Model.FK_Group_Spec">
+      <End Role="Spec" EntitySet="Spec" />
+      <End Role="Group" EntitySet="Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Teacher" Association="timetable_v3Model.FK_Group_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="Group" EntitySet="Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeTableMain_Group" Association="timetable_v3Model.FK_TimeTableMain_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="TimeTableMain" EntitySet="TimeTableMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="timetable_v3Model.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeTableMain_Subject" Association="timetable_v3Model.FK_TimeTableMain_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="TimeTableMain" EntitySet="TimeTableMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_User" Association="timetable_v3Model.FK_Teacher_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeTableMain_Teacher" Association="timetable_v3Model.FK_TimeTableMain_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="TimeTableMain" EntitySet="TimeTableMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeSpanStatic_TimeTableMain" Association="timetable_v3Model.FK_TimeSpanStatic_TimeTableMain">
+      <End Role="TimeTableMain" EntitySet="TimeTableMain" />
+      <End Role="TimeSpanStatic" EntitySet="TimeSpanStatic" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Spec" Relationship="timetable_v3Model.FK_Spec_Course" FromRole="Course" ToRole="Spec" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idSpec" Type="Int32" />
+    <Property Name="idTeacher" Type="Int32" />
+    <NavigationProperty Name="Spec" Relationship="timetable_v3Model.FK_Group_Spec" FromRole="Group" ToRole="Spec" />
+    <NavigationProperty Name="Teacher" Relationship="timetable_v3Model.FK_Group_Teacher" FromRole="Group" ToRole="Teacher" />
+    <NavigationProperty Name="TimeTableMain" Relationship="timetable_v3Model.FK_TimeTableMain_Group" FromRole="Group" ToRole="TimeTableMain" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="timetable_v3Model.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Spec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idCourse" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="timetable_v3Model.FK_Spec_Course" FromRole="Spec" ToRole="Course" />
+    <NavigationProperty Name="Group" Relationship="timetable_v3Model.FK_Group_Spec" FromRole="Spec" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Hour" Type="Int32" />
+    <NavigationProperty Name="TimeTableMain" Relationship="timetable_v3Model.FK_TimeTableMain_Subject" FromRole="Subject" ToRole="TimeTableMain" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stage" Type="Int32" />
+    <Property Name="idUser" Type="Int32" />
+    <NavigationProperty Name="Group" Relationship="timetable_v3Model.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
+    <NavigationProperty Name="User" Relationship="timetable_v3Model.FK_Teacher_User" FromRole="Teacher" ToRole="User" />
+    <NavigationProperty Name="TimeTableMain" Relationship="timetable_v3Model.FK_TimeTableMain_Teacher" FromRole="Teacher" ToRole="TimeTableMain" />
+  </EntityType>
+  <EntityType Name="TimeSpanStatic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTimeTableMain" Type="Int32" />
+    <Property Name="IdSubject" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="idTeacher" Type="Int32" />
+    <Property Name="Cabinet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="idGroup" Type="Int32" />
+    <NavigationProperty Name="TimeTableMain" Relationship="timetable_v3Model.FK_TimeSpanStatic_TimeTableMain" FromRole="TimeSpanStatic" ToRole="TimeTableMain" />
+  </EntityType>
+  <EntityType Name="TimeTableMain">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSubject" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="idTeacher" Type="Int32" />
+    <Property Name="Cabinet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="idGroup" Type="Int32" />
+    <Property Name="StatusSubject" Type="Boolean" />
+    <NavigationProperty Name="Group" Relationship="timetable_v3Model.FK_TimeTableMain_Group" FromRole="TimeTableMain" ToRole="Group" />
+    <NavigationProperty Name="Subject" Relationship="timetable_v3Model.FK_TimeTableMain_Subject" FromRole="TimeTableMain" ToRole="Subject" />
+    <NavigationProperty Name="Teacher" Relationship="timetable_v3Model.FK_TimeTableMain_Teacher" FromRole="TimeTableMain" ToRole="Teacher" />
+    <NavigationProperty Name="TimeSpanStatic" Relationship="timetable_v3Model.FK_TimeSpanStatic_TimeTableMain" FromRole="TimeTableMain" ToRole="TimeSpanStatic" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idRole" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="timetable_v3Model.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Teacher" Relationship="timetable_v3Model.FK_Teacher_User" FromRole="User" ToRole="Teacher" />
+  </EntityType>
+  <Association Name="FK_Spec_Course">
+    <End Type="timetable_v3Model.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.Spec" Role="Spec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Spec">
+        <PropertyRef Name="idCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Spec">
+    <End Type="timetable_v3Model.Spec" Role="Spec" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spec">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="idSpec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Teacher">
+    <End Type="timetable_v3Model.Teacher" Role="Teacher" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeTableMain_Group">
+    <End Type="timetable_v3Model.Group" Role="Group" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.TimeTableMain" Role="TimeTableMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTableMain">
+        <PropertyRef Name="idGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Type="timetable_v3Model.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeTableMain_Subject">
+    <End Type="timetable_v3Model.Subject" Role="Subject" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.TimeTableMain" Role="TimeTableMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTableMain">
+        <PropertyRef Name="idSubject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_User">
+    <End Type="timetable_v3Model.User" Role="User" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.Teacher" Role="Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeTableMain_Teacher">
+    <End Type="timetable_v3Model.Teacher" Role="Teacher" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.TimeTableMain" Role="TimeTableMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTableMain">
+        <PropertyRef Name="idTeacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeSpanStatic_TimeTableMain">
+    <End Type="timetable_v3Model.TimeTableMain" Role="TimeTableMain" Multiplicity="0..1" />
+    <End Type="timetable_v3Model.TimeSpanStatic" Role="TimeSpanStatic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeTableMain">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeSpanStatic">
+        <PropertyRef Name="IdTimeTableMain" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

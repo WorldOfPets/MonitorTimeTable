@@ -1,0 +1,24 @@
+﻿<Page x:Class="timetable_v0.PageTableTime.DataGridOnMonitor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:timetable_v0.PageTableTime"
+      mc:Ignorable="d" 
+      d:DesignHeight="211" d:DesignWidth="384"
+      Title="DataGridOnMonitor">
+
+    <Grid>
+        <StackPanel Height="211"  Width="384">
+            <TextBlock Style="{StaticResource stWin}" Text="Group Name" Name="tb"/>
+            <DataGrid Style="{StaticResource data}" RowStyle="{StaticResource sty}"
+                        Name="data">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="28" Header="№" Binding="{Binding gNumber}" CellStyle="{StaticResource cellN}"/>
+                    <DataGridTextColumn Width="54" Header="Кабинет" Binding="{Binding Cabinet}" CellStyle="{StaticResource cellK}"/>
+                    <DataGridTextColumn Width="295" Header="Дисциплина" Binding="{Binding Subject.Name}" CellStyle="{StaticResource cellK}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

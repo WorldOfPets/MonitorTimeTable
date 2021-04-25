@@ -1,0 +1,144 @@
+﻿<Page x:Class="timetable_v0.PageTableTime.EditTimeTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:timetable_v0.PageTableTime"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditTimeTable">
+
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Дисциплина: ">
+                </TextBlock>
+                <ComboBox
+                    Name="cmbSubject"
+                    Width="150"
+                    Height="20">
+                    
+                </ComboBox>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Преподаватель: ">
+                </TextBlock>
+                <ComboBox
+                    Name="cmbTeacher"
+                    Width="150"
+                    Height="20">
+
+                </ComboBox>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Группа: ">
+                </TextBlock>
+                <TextBox
+                    Width="140"
+                    Text="{Binding ElementName=cmbGroup, Path=Text}"/>
+                <ComboBox
+                    Name="cmbGroup"
+                    Width="10"
+                    Height="20">
+
+                </ComboBox>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Дата: ">
+                </TextBlock>
+                <TextBox
+                    Name="tboxDate"
+                    Width="150"
+                    Height="20">
+
+                </TextBox>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Кабинет: ">
+                </TextBlock>
+                <TextBox
+                    Name="tboxCabinet"
+                    Width="150"
+                    Height="20">
+
+                </TextBox>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Номер пары: ">
+                </TextBlock>
+                <TextBox
+                    Name="tboxNumber"
+                    Width="0"
+                    Height="20">
+
+                </TextBox>
+                <Button
+                    Name="btnN1"
+                    Click="btnN1_Click"
+                    Style="{StaticResource btnNumber}"
+                    Content="1"/>
+                <Button
+                    Click="btnN1_Click"
+                    Name="btnN2"
+                    Style="{StaticResource btnNumber}"
+                    Content="2"/>
+                <Button
+                    Click="btnN1_Click"
+                    Name="btnN3"
+                    Style="{StaticResource btnNumber}"
+                    Content="3"/>
+                <Button
+                    Click="btnN1_Click"
+                    Name="btnN4"
+                    Style="{StaticResource btnNumber}"
+                    Content="4"/>
+                <Button
+                    Click="btnN1_Click"
+                    Name="btnN5"
+                    Style="{StaticResource btnNumber}"
+                    Content="5"/>
+            </StackPanel>
+            <StackPanel 
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Сохранить изменения: ">
+                </TextBlock>
+                <CheckBox
+                    Name="ChekStatus"
+                    
+                    Width="150"
+                    Height="20" 
+                    IsChecked="True"/>
+            </StackPanel>
+            <Button
+                Name="btnLoad"
+                Click="btnLoad_Click"
+                Content="Загрузаить даннные в БД">
+                
+            </Button>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

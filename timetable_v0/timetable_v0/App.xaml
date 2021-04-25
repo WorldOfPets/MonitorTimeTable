@@ -1,0 +1,257 @@
+﻿<Application x:Class="timetable_v0.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:timetable_v0"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button" x:Key="btnNumber">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="stOnM">
+            <Setter Property="Height" Value="211"/>
+            <Setter Property="Width" Value="384"/>
+        </Style>
+        
+        <Style TargetType="DataGridColumnHeader" >
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#2F2E33"/>
+            <Setter Property="Foreground" Value="#D5D6D2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style TargetType="DataGrid" x:Key="data"> <!--Стиль САМОГО DataGrid в окне для монитора-->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+
+        <Style TargetType="DataGridRow" x:Key="sty"> <!--Стиль СТРОКИ для DataGrid в окне для монитора-->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="81"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Visibility" Value="{Binding getVis}"/>
+            <Setter Property="Background" Value="{Binding Back}"/><!--#3F681C-->
+            <Setter Property="Foreground" Value="{Binding Fore}"/> 
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="DataGridCell" x:Key="cellN"> <!--Стиль ЯЧЕКИ С НОМЕРОМ ПАРЫ для DataGrid в окне для монитора-->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="270"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#2F2E33"/> <!--#375E97-->
+            <Setter Property="Foreground" Value="#D5D6D2"/>
+        </Style>
+        
+        <Style TargetType="DataGridCell" x:Key="cellK"> <!--Стиль ЯЧЕКИ С КАБИНЕТОМ И ДИСЦИПЛИНОЙ для DataGrid в окне для монитора-->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <!--<Setter Property="BorderBrush" Value="#1E656D"/>--><!--#375E97--><!--
+            <Setter Property="BorderThickness" Value="0 0 3 0"/>-->
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="stWin">  <!--Текст блок с именем группы-->
+            <Setter Property="Background" Value="#2F2E33"/> <!--#FFBB00-->
+            <Setter Property="Foreground" Value="#D5D6D2"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="btnMain">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF3C3636"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Height" Value="50px"/>
+            <Setter Property="Width" Value="200px"/>
+            <Setter Property="FontSize" Value="18px"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="stkCombo">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="140"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="tbPage">
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="FontSize" Value="18px"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="cmbPage">
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="FontSize" Value="18px"/>
+            <Setter Property="Foreground" Value="#FF3C3636"/>
+            
+        </Style>
+        <Style TargetType="Button" x:Key="btnTopPanel">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5 5 5 5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="25px"/>
+            <Setter Property="Width" Value="25px"/>
+            <Setter Property="FontSize" Value="14px"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFFF4646"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btnNew" TargetType="Button">
+            <Setter Property="Background" Value="#FF3C3636"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="208"/>
+            <Setter Property="Margin" Value="0 0 2 2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="0,0,2,2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF534B4B"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btnNewTopPanel" TargetType="Button">
+            <Setter Property="Background" Value="#FFFF0000"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Margin" Value="0 0 2 2"/>
+            <Setter Property="Width" Value="268"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="0,0,2,2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFFF4646"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btnNewSmall" TargetType="Button">
+            <Setter Property="Background" Value="#FF3C3636"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="208"/>
+            <Setter Property="Margin" Value="0 0 6 2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="0,0,6,2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF534B4B"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--<Style TargetType="DataGridCell">
+            <Setter Property="TextBlock.Height" Value="45"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+
+        </Style>-->
+    </Application.Resources>
+</Application>
