@@ -108,10 +108,10 @@
                     <Frame
                         Name="frm18"/>
                 </StackPanel>
-
+                
                 <StackPanel
                     Width="768"
-                    Height="214" Background="#2F2E33">
+                    Height="205" Background="#2F2E33">
                     <TextBlock
                         Name="date"
                         TextAlignment="Center"
@@ -138,7 +138,7 @@
 
                 <StackPanel
                     Width="768"
-                    Height="214"
+                    Height="205"
                     Background="#2F2E33">
                     <TextBlock
                         Foreground="#D5D6D2"
@@ -148,7 +148,14 @@
                         Text="15:30:30" FontFamily="Agency FB"/>
                 </StackPanel>
             </StackPanel>
+            <StackPanel 
+                Height="32"
+                Background="#2F2E33">
+                <Frame
+                        Name="frmText"/>
 
+
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

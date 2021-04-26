@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\admin_user\Source\Repos\WorldOfPets\MonitorTimeTable\timetable_v0\timetable_v0\obj\Debug\
+C:\Users\admin_user\Source\Repos\WorldOfPets\MonitorTimeTable\timetable_v0\timetable_v0\obj\Release\
 timetable_v0
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\admin_user\Source\Repos\WorldOfPets\MonitorTimeTable\timetable_v0\timetable_v0\App.xaml
 6278803679
 2-657620944
-2953132839
+28895492206
 18349637396
 MainWindow.xaml;PageTableTime\DataGridOnMonitor.xaml;PageTableTime\EditTimeTable.xaml;PageTableTime\testText.xaml;PageTableTime\TimePage.xaml;TimeOnMonitor.xaml;
 

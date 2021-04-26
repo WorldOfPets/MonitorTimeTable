@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:timetable_v0.PageTableTime"
       mc:Ignorable="d" 
-      d:DesignHeight="211" d:DesignWidth="384"
+      d:DesignHeight="205" d:DesignWidth="384"
       Title="DataGridOnMonitor">
 
     <Grid>
-        <StackPanel Height="211"  Width="384">
+        <StackPanel Height="205"  Width="384">
             <TextBlock Style="{StaticResource stWin}" Text="Group Name" Name="tb"/>
             <DataGrid Style="{StaticResource data}" RowStyle="{StaticResource sty}"
                         Name="data">

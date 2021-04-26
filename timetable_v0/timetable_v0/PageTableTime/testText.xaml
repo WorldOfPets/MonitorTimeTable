@@ -1,0 +1,37 @@
+﻿<Page x:Class="timetable_v0.PageTableTime.testText"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:timetable_v0.PageTableTime"
+      mc:Ignorable="d" 
+      d:DesignHeight="35" d:DesignWidth="1980"
+      Title="testText">
+
+    <Grid>
+        <Canvas x:Name="Canvas" Background="Transparent" Height="25"
+                VerticalAlignment="Top">
+            <TextBlock 
+                        Margin="0,7,0,0" 
+                        VerticalAlignment="Bottom" 
+                        FontSize="15"  
+                        FontWeight="Bold" 
+                        Foreground="White"
+                        Text="Тестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текст" Canvas.Right="0">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Canvas.Left)" From="0" To="-2000" 
+                                                     Duration="0:0:15" RepeatBehavior="Forever"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </Canvas>
+        
+    </Grid>
+</Page>

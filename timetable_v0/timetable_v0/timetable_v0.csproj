@@ -117,6 +117,9 @@
     <Compile Include="PageTableTime\EditTimeTable.xaml.cs">
       <DependentUpon>EditTimeTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageTableTime\testText.xaml.cs">
+      <DependentUpon>testText.xaml</DependentUpon>
+    </Compile>
     <Compile Include="supClass\dbClass.cs" />
     <Compile Include="supClass\perhod.cs" />
     <Compile Include="supClass\sortClass.cs" />
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageTableTime\EditTimeTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageTableTime\testText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

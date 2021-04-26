@@ -49,7 +49,8 @@ namespace timetable_v0
             group = 20; frm19.Navigate(new PageTableTime.DataGridOnMonitor());
             group = 21; frm20.Navigate(new PageTableTime.DataGridOnMonitor());
             group = 22; frm21.Navigate(new PageTableTime.DataGridOnMonitor());
-            date.Text = DateTime.Now.ToLongDateString();
+                frmText.Navigate(new PageTableTime.testText());
+            //date.Text = DateTime.Now.ToLongDateString();
             Disp();
             }
             catch (Exception ex)
@@ -79,7 +80,7 @@ namespace timetable_v0
             try
             {
                 refresss++;
-                time.Text = DateTime.Now.ToLongTimeString();
+                //time.Text = DateTime.Now.ToLongTimeString();
                 if (refresss > 300)
                 {
                     dispatcher.Stop();

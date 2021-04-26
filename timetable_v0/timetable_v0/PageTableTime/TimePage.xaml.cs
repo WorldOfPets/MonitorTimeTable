@@ -117,8 +117,8 @@ namespace timetable_v0.PageTableTime
                     else if (i.StatusSubject == true)
                     {
                         var save = supClass.dbClass.dbTimeTable.TimeSpanStatic.FirstOrDefault(x => x.IdTimeTableMain == i.Id);
-                        save.Date = ((DateTime)i.Date).AddDays(14);
-                        i.Date = ((DateTime)i.Date).AddDays(14);
+                        //save.Date = ((DateTime)i.Date).AddDays(14);
+                        //i.Date = ((DateTime)i.Date).AddDays(14);
                     }
                 }
             }
