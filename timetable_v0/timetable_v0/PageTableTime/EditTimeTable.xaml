@@ -16,12 +16,16 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Дисциплина: ">
                 </TextBlock>
                 <ComboBox
+                    FontSize="20"
+                    Margin="5"
                     Name="cmbSubject"
-                    Width="150"
-                    Height="20">
+                    Width="170"
+                    Height="30">
                     
                 </ComboBox>
             </StackPanel>
@@ -29,12 +33,16 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Преподаватель: ">
                 </TextBlock>
                 <ComboBox
+                    FontSize="20"
+                    Margin="5"
                     Name="cmbTeacher"
-                    Width="150"
-                    Height="20">
+                    Width="170"
+                    Height="30">
 
                 </ComboBox>
             </StackPanel>
@@ -42,15 +50,16 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Группа: ">
                 </TextBlock>
-                <TextBox
-                    Width="140"
-                    Text="{Binding ElementName=cmbGroup, Path=Text}"/>
                 <ComboBox
+                    FontSize="20"
+                    Margin="5"
                     Name="cmbGroup"
-                    Width="10"
-                    Height="20">
+                    Width="170"
+                    Height="30">
 
                 </ComboBox>
             </StackPanel>
@@ -58,12 +67,17 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Дата: ">
                 </TextBlock>
                 <TextBox
+                    FontSize="24"
+                    TextChanged="tboxDate_TextChanged"
+                    Margin="5"
                     Name="tboxDate"
-                    Width="150"
-                    Height="20">
+                    Width="170"
+                    Height="30">
 
                 </TextBox>
             </StackPanel>
@@ -71,12 +85,16 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Кабинет: ">
                 </TextBlock>
                 <TextBox
+                    FontSize="24"
+                    Margin="5"
                     Name="tboxCabinet"
-                    Width="150"
-                    Height="20">
+                    Width="170"
+                    Height="30">
 
                 </TextBox>
             </StackPanel>
@@ -84,20 +102,17 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    FontSize="24"
+                    Margin="5"
                     Text="Номер пары: ">
                 </TextBlock>
-                <TextBox
-                    Name="tboxNumber"
-                    Width="0"
-                    Height="20">
-
-                </TextBox>
                 <Button
                     Name="btnN1"
                     Click="btnN1_Click"
                     Style="{StaticResource btnNumber}"
                     Content="1"/>
                 <Button
+                    
                     Click="btnN1_Click"
                     Name="btnN2"
                     Style="{StaticResource btnNumber}"
@@ -122,9 +137,12 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <TextBlock
+                    Visibility="Collapsed"
+                    FontSize="24"
                     Text="Сохранить изменения: ">
                 </TextBlock>
                 <CheckBox
+                    Visibility="Collapsed"
                     Name="ChekStatus"
                     
                     Width="150"
@@ -132,13 +150,23 @@
                     IsChecked="True"/>
             </StackPanel>
             <Button
+                Margin="5"
+                Height="50"
+                FontSize="24"
                 Name="btnLoad"
                 Click="btnLoad_Click"
                 Content="Загрузаить даннные в БД">
                 
             </Button>
         </StackPanel>
-
+        <Image 
+            HorizontalAlignment="Right"
+            Width="290"
+            Source="./zeroForDima.jpg"/>
+        <Image 
+            HorizontalAlignment="Left"
+            Width="290"
+            Source="./second.png"/>
 
     </Grid>
 </Page>

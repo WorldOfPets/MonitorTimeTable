@@ -20,19 +20,23 @@ namespace timetable_v0.supClass
             var allTimeTable = supClass.dbClass.dbTimeTable.TimeTableMain.Where(x => x.idGroup == k /*&& x.Date.Value.Day == now.Day + 1 */)/*.OrderBy(x => x.Number)*/.ToList();
             var group = supClass.dbClass.dbTimeTable.Group.FirstOrDefault(x => x.Id == k );
             textBlock.Text = group.Name;
+                foreach (var i in allTimeTable)
+                {
+                    i.Subject.ShortName += $"/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.\n";
+                }
             foreach (var i in allTimeTable)
             {
                 foreach (var j in allTimeTable)
                 {
                     if ((i.Number == j.Number && (i.Cabinet != j.Cabinet || i.idSubject != j.idSubject)))
                     {
-                        i.Subject.Name += "\n" + j.Subject.Name;
+                        i.Subject.ShortName += "\n" + j.Subject.ShortName + "\n" ;
                         i.Cabinet += "\n" + j.Cabinet;
                         j.Number += 10;
                     }
                 }
             }
-            var bc = new BrushConverter();
+            //var bc = new BrushConverter();
             //if (group.idSpec == 1)
             //{
             //    textBlock.Background = (Brush)bc.ConvertFrom("#2F2E33");

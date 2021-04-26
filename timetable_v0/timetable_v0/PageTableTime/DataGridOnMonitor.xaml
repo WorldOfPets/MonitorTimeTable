@@ -16,7 +16,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="28" Header="№" Binding="{Binding gNumber}" CellStyle="{StaticResource cellN}"/>
                     <DataGridTextColumn Width="54" Header="Кабинет" Binding="{Binding Cabinet}" CellStyle="{StaticResource cellK}"/>
-                    <DataGridTextColumn Width="295" Header="Дисциплина" Binding="{Binding Subject.Name}" CellStyle="{StaticResource cellK}"/>
+                    <DataGridTextColumn Width="295" Header="Дисциплина" Binding="{Binding Subject.ShortName}" CellStyle="{StaticResource cellK}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

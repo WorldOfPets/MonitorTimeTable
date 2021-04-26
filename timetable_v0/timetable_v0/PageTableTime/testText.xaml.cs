@@ -23,6 +23,15 @@ namespace timetable_v0.PageTableTime
         public testText()
         {
             InitializeComponent();
+            int i = 1;
+            tbRun.Text = null;
+            List<dbFolder.Subject> listRan = new List<dbFolder.Subject>();
+            listRan = supClass.dbClass.dbTimeTable.Subject.ToList();
+            foreach (dbFolder.Subject subject in listRan)
+            {
+                tbRun.Text += $"***{i} {subject.ShortName} - {subject.Name} ";
+                i++;
+            }
         }
     }
 }

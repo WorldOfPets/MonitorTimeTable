@@ -11,20 +11,22 @@
     <Grid>
         <Canvas x:Name="Canvas" Background="Transparent" Height="25"
                 VerticalAlignment="Top">
-            <TextBlock 
+            <TextBlock Name="tbRun"
                         Margin="0,7,0,0" 
                         VerticalAlignment="Bottom" 
                         FontSize="15"  
                         FontWeight="Bold" 
                         Foreground="White"
-                        Text="Тестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовыйТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текстТестовый текст" Canvas.Right="0">
+                        Text="кстТестовый текстТестовый текст" Canvas.Right="0">
                 <TextBlock.Triggers>
                     <EventTrigger RoutedEvent="TextBlock.Loaded">
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="(Canvas.Left)" From="0" To="-2000" 
-                                                     Duration="0:0:15" RepeatBehavior="Forever"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Canvas.Left)" 
+                                                     From="2000" 
+                                                     To="-20000" 
+                                                     Duration="0:4:0" RepeatBehavior="Forever"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger.Actions>

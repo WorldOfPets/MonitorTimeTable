@@ -119,5 +119,26 @@ namespace timetable_v0.PageTableTime
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void tboxDate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var box = (TextBox)sender;
+            if (Convert.ToInt32(box.Text.IndexOf(' ')) >= 0)
+            {
+                box.Text = "";
+                MessageBox.Show("Not Space!!!");
+            }
+            else if (box.Text.Length < 8)
+            {
+                box.Background = Brushes.Red;
+                box.Foreground = Brushes.White;
+            }
+            else if (box.Text.Length == 8)
+            {
+                box.Text = Convert.ToInt32(box.Text).ToString("##/##/####");
+                box.Background = Brushes.Green;
+                box.Foreground = Brushes.White;
+            }
+        }
     }
 }

@@ -207,6 +207,9 @@
       <DependentUpon>dbTimeTable.edmx</DependentUpon>
       <LastGenOutput>dbTimeTable.cs</LastGenOutput>
     </Content>
+    <Resource Include="PageTableTime\second.png" />
+    <Resource Include="PageTableTime\zeroForDima.jpg" />
+    <Resource Include="Res\zeroForDima.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Res\kp11.png" />

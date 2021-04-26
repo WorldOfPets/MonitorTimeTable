@@ -67,5 +67,12 @@ namespace timetable_v0.dbFolder
                 else return "Visible";
             }
         }
+        public string subName 
+        {
+            get 
+            {
+                return $"{Subject.ShortName}/{Teacher.Surname} {Teacher.Name[0]}.{Teacher.MiddleName[0]}.";
+            }
+        }
     }
 }
