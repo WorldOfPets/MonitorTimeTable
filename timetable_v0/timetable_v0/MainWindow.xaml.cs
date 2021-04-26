@@ -66,14 +66,14 @@ namespace timetable_v0
 
         private void editMain_Click(object sender, RoutedEventArgs e)
         {
-            try 
-            { 
+            //try 
+            //{ 
                 frm.Navigate(new EditTimeTable());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void btnTimeSee_Click(object sender, RoutedEventArgs e)

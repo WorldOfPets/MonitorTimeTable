@@ -25,8 +25,8 @@ namespace timetable_v0.PageTableTime
         public EditTimeTable()
         {
             InitializeComponent();
-            try
-            { 
+            //try
+            //{ 
             dbClass.dbTimeTable = new dbFolder.timetable_v3Entities();
 
             cmbSubject.SelectedValuePath = "Id";
@@ -43,11 +43,11 @@ namespace timetable_v0.PageTableTime
 
             NumberGr = 1;
             btnN1.BorderBrush = Brushes.Green;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)

@@ -25,12 +25,12 @@ namespace timetable_v0.dbFolder
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Group> Group { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Spec> Spec { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<TimeSpanStatic> TimeSpanStatic { get; set; }
         public virtual DbSet<TimeTableMain> TimeTableMain { get; set; }

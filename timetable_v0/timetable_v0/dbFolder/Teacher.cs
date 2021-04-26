@@ -22,8 +22,8 @@ namespace timetable_v0.dbFolder
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Surname { get; set; }
+        public string Name { get; set; }
         public string MiddleName { get; set; }
         public Nullable<int> Stage { get; set; }
         public Nullable<int> idUser { get; set; }

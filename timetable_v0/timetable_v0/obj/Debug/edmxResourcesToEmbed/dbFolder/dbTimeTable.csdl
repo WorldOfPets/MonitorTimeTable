@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="timetable_v3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="timetable_v3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="timetable_v3Model.sysdiagrams" />
     <EntitySet Name="Course" EntityType="timetable_v3Model.Course" />
     <EntitySet Name="Group" EntityType="timetable_v3Model.Group" />
     <EntitySet Name="Role" EntityType="timetable_v3Model.Role" />
     <EntitySet Name="Spec" EntityType="timetable_v3Model.Spec" />
     <EntitySet Name="Subject" EntityType="timetable_v3Model.Subject" />
-    <EntitySet Name="sysdiagrams" EntityType="timetable_v3Model.sysdiagrams" />
     <EntitySet Name="Teacher" EntityType="timetable_v3Model.Teacher" />
     <EntitySet Name="TimeSpanStatic" EntityType="timetable_v3Model.TimeSpanStatic" />
     <EntitySet Name="TimeTableMain" EntityType="timetable_v3Model.TimeTableMain" />
@@ -48,6 +48,16 @@
       <End Role="TimeSpanStatic" EntitySet="TimeSpanStatic" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="Course">
     <Key>
       <PropertyRef Name="Id" />
@@ -92,26 +102,16 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Hour" Type="Int32" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TimeTableMain" Relationship="timetable_v3Model.FK_TimeTableMain_Subject" FromRole="Subject" ToRole="TimeTableMain" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Stage" Type="Int32" />
     <Property Name="idUser" Type="Int32" />
