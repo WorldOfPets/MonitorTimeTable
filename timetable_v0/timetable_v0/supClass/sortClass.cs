@@ -36,6 +36,13 @@ namespace timetable_v0.supClass
                     }
                 }
             }
+
+            dataGrid.ItemsSource = allTimeTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             //var bc = new BrushConverter();
             //if (group.idSpec == 1)
             //{
@@ -57,13 +64,6 @@ namespace timetable_v0.supClass
             //{
             //    textBlock.Background = (Brush)bc.ConvertFrom("#2F2E33");
             //}
-
-            dataGrid.ItemsSource = allTimeTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }
