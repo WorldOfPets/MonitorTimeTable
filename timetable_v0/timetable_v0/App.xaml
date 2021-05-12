@@ -38,7 +38,7 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Height" Value="74"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Visibility" Value="{Binding getVis}"/>
             <Setter Property="Background" Value="{Binding Back}"/><!--#3F681C-->

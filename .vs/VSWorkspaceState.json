@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\timetable_v0"
+    "\\timetable_v0",
+    "\\timetable_v0\\packages"
   ],
   "SelectedNode": "\\timetable_v0\\timetable_v0.sln",
   "PreviewInSolutionExplorer": false

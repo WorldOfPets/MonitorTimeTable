@@ -17,25 +17,32 @@ namespace timetable_v0.supClass
             { 
             supClass.dbClass.dbTimeTable = new dbFolder.timetable_v3Entities();
             var now = DateTime.Now;
-            var allTimeTable = supClass.dbClass.dbTimeTable.TimeTableMain.Where(x => x.idGroup == k /*&& x.Date.Value.Day == now.Day + 1 */)/*.OrderBy(x => x.Number)*/.ToList();
+            var allTimeTable = supClass.dbClass.dbTimeTable.TimeTableMain.Where(x => x.idGroup == k /*&& x.Date.Value.Day == now.Day + 1 */).OrderBy(x => x.Number).ToList();
             var group = supClass.dbClass.dbTimeTable.Group.FirstOrDefault(x => x.Id == k );
             textBlock.Text = group.Name;
-                foreach (var i in allTimeTable)
-                {
-                    i.Subject.ShortName += $"/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.\n";
-                }
+                //foreach (var i in allTimeTable)
+                //{
+                //    if (i.Subject.ShortName.Length < 13)
+                //    { 
+                //        i.Subject.ShortName += $"/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.";
+                //    }
+                //}
             foreach (var i in allTimeTable)
             {
                 foreach (var j in allTimeTable)
                 {
-                    if ((i.Number == j.Number && (i.Cabinet != j.Cabinet || i.idSubject != j.idSubject)))
+                        if ((i.Number == j.Number && i.idGroup == j.idGroup && i.idTeacher != j.idTeacher && i.Date == j.Date /*&& i.Cabinet != j.Cabinet && i.idSubject != j.idSubject*/&& i.Subject.ShortName.Length < 15 ))
+                        {
+                            i.Subject.ShortName = $"(1п){i.Subject.ShortName}/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.\n(2п){j.Subject.ShortName}/{j.Teacher.Surname} {j.Teacher.Name[0]}.{j.Teacher.MiddleName[0]}.";
+                            i.Cabinet += "\n" + j.Cabinet;
+                            j.Number = 0;
+                        }
+                }
+                    if (i.Subject.ShortName.Length < 15 && i.Number != 0)
                     {
-                        i.Subject.ShortName += "\n" + j.Subject.ShortName + "\n" ;
-                        i.Cabinet += "\n" + j.Cabinet;
-                        j.Number += 10;
+                        i.Subject.ShortName = $"{i.Subject.ShortName}/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.";
                     }
                 }
-            }
 
             dataGrid.ItemsSource = allTimeTable;
             }
