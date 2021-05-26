@@ -17,7 +17,7 @@ namespace timetable_v0.supClass
             { 
             supClass.dbClass.dbTimeTable = new dbFolder.timetable_v3Entities();
             var now = DateTime.Now;
-            var allTimeTable = supClass.dbClass.dbTimeTable.TimeTableMain.Where(x => x.idGroup == k /*&& x.Date.Value.Day == now.Day + 1 */).OrderBy(x => x.Number).ToList();
+            var allTimeTable = supClass.dbClass.dbTimeTable.TimeTableMain.Where(x => x.idGroup == k && x.Date.Value.Day == now.Day).OrderBy(x => x.Number).ToList();
             var group = supClass.dbClass.dbTimeTable.Group.FirstOrDefault(x => x.Id == k );
             textBlock.Text = group.Name;
                 //foreach (var i in allTimeTable)
