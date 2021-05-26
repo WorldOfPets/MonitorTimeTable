@@ -20,7 +20,7 @@ namespace timetable_v0.dbFolder
             get
             {
                 var now = DateTime.Now;
-                if (((now.Hour != 2) || (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) { return "#3A5199"; } 
+                if ((/*(now.Hour != 2) ||*/ (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) { return "#3A5199"; } 
                 else if (((now.Hour == 10 && now.Minute > 30) || now.Hour == 11 || (now.Hour == 12 && now.Minute < 20)) && Number == 2) { return "#3A5199"; } 
                 else if (((now.Hour == 12 && now.Minute > 20) || now.Hour == 13 || (now.Hour == 14 && now.Minute < 5)) && Number == 3) { return "#3A5199"; }
                 else if (((now.Hour == 14 && now.Minute > 5) || (now.Hour == 15 && now.Minute < 55)) && Number == 4) { return "#3A5199"; } else return "#D5D6D2";
@@ -36,7 +36,7 @@ namespace timetable_v0.dbFolder
                 {
                     return "Collapsed";
                 }
-                else if ((((now.Hour != 2)||(now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) || (((now.Hour == 20) || (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 2)) { return "Visible"; }
+                else if (((/*(now.Hour != 2)||*/(now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) || (((now.Hour == 20) || (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 2)) { return "Visible"; }
                 else if ((((now.Hour == 10 && now.Minute > 30) || now.Hour == 11 || (now.Hour == 12 && now.Minute < 20)) && Number == 2) || (((now.Hour == 10 && now.Minute > 30) || now.Hour == 11 || (now.Hour == 12 && now.Minute < 20)) && Number == 3)) { return "Visible"; }
                 else if ((((now.Hour == 12 && now.Minute > 20) || now.Hour == 13 || (now.Hour == 14 && now.Minute < 5)) && Number == 3) || (((now.Hour == 12 && now.Minute > 20) || now.Hour == 13 || (now.Hour == 14 && now.Minute < 5)) && Number == 4)) { return "Green"; }
                 else if ((((now.Hour == 14 && now.Minute > 5) || (now.Hour == 15 && now.Minute < 55)) && Number == 4) || (((now.Hour == 14 && now.Minute > 5) || (now.Hour == 15 && now.Minute < 55)) && Number == 5)) { return "Visible"; }
@@ -48,7 +48,7 @@ namespace timetable_v0.dbFolder
             get
             {
                 var now = DateTime.Now;
-                if (((now.Hour != 2) || (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) { return "#D5D6D2"; }
+                if ((/*(now.Hour != 2) ||*/ (now.Hour == 9 && now.Minute > 0) || (now.Hour == 10 && now.Minute < 30)) && Number == 1) { return "#D5D6D2"; }
                 else if (((now.Hour == 10 && now.Minute > 30) || now.Hour == 11 || (now.Hour == 12 && now.Minute < 20)) && Number == 2) { return "#D5D6D2"; }
                 else if (((now.Hour == 12 && now.Minute > 20) || now.Hour == 13 || (now.Hour == 14 && now.Minute < 5)) && Number == 3) { return "#D5D6D2"; }
                 else if (((now.Hour == 14 && now.Minute > 5) || (now.Hour == 15 && now.Minute < 55)) && Number == 4) { return "#D5D6D2"; } else return "#3A5199";
