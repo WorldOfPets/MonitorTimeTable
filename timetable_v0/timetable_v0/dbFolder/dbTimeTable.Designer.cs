@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\admin_user\Source\Repos\WorldOfPets\MonitorTimeTable\timetable_v0\timetable_v0\dbFolder\dbTimeTable.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Сыромятников\Source\Repos\MonitorTimeTable\timetable_v0\timetable_v0\dbFolder\dbTimeTable.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

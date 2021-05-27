@@ -31,9 +31,9 @@ namespace timetable_v0.supClass
             {
                 foreach (var j in allTimeTable)
                 {
-                        if ((i.Number == j.Number && i.idGroup == j.idGroup && i.idTeacher != j.idTeacher && i.Date == j.Date /*&& i.Cabinet != j.Cabinet && i.idSubject != j.idSubject*/&& i.Subject.ShortName.Length < 15 ))
+                        if ((i.Number == j.Number && i.idGroup == j.idGroup && i.idTeacher != j.idTeacher && i.Date == j.Date && i.Cabinet != j.Cabinet && i.idSubject != j.idSubject && i.Subject.ShortName.Length < 15 ))
                         {
-                            i.Subject.ShortName = $"(1п){i.Subject.ShortName}/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.\n(2п){j.Subject.ShortName}/{j.Teacher.Surname} {j.Teacher.Name[0]}.{j.Teacher.MiddleName[0]}.";
+                            i.Subject.ShortName = $"{i.Subject.ShortName}(1п)/{i.Teacher.Surname} {i.Teacher.Name[0]}.{i.Teacher.MiddleName[0]}.\n{j.Subject.ShortName}(2п)/{j.Teacher.Surname} {j.Teacher.Name[0]}.{j.Teacher.MiddleName[0]}.";
                             i.Cabinet += "\n" + j.Cabinet;
                             j.Number = 0;
                         }
